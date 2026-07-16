@@ -1,0 +1,13 @@
+soc_model: BCM2712 (Pi 5)
+fingerprint: pi5_fp
+argus_version: 0.1.0
+generated_at: '2026-07-16T04:40:13.028695'
+tier: ros-base
+tier_score: 59
+artifacts:
+- cyclonedds.xml
+- fastdds.xml
+- zenoh_advice.md
+- sysctl.conf
+- build_flags.json
+- install_ros2.sh

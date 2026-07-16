@@ -1,0 +1,15 @@
+{
+  "mcpu": "apple-m4",
+  "march": "armv8.5-a",
+  "lto": true,
+  "lto_mode": "auto",
+  "vectorization": true,
+  "cmake_args": [
+    "-DCMAKE_CXX_FLAGS=-mcpu=apple-m4 -O3 -flto=auto -march=armv8.5-a",
+    "-DCMAKE_C_FLAGS=-mcpu=apple-m4 -O3 -flto=auto -march=armv8.5-a"
+  ],
+  "env": {
+    "CFLAGS": "-mcpu=apple-m4 -O3 -flto=auto",
+    "CXXFLAGS": "-mcpu=apple-m4 -O3 -flto=auto"
+  }
+}

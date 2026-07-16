@@ -1,0 +1,77 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+ENV/
+env/
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Package
+argus.egg-info/
+
+# IDE/Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Runtime / Build artifacts
+argus-reports/
+*.log
+*.tmp
+*.temp
+
+# Testing
+.tox/
+.coverage
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE specific
+.cursor/
+.cursorrules
+
+# Type checking
+*.pyi
+*.pyd
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Cython
+*.c
+*.cpp
+
+# Distribution
+*.whl
+*.tar.gz
+
+# IDE specific (PyCharm)
+.idea/
+*.iml
+
+# IDE specific (VS Code) - already covered but explicit
+.vscode/
+*.code-workspace
+
+# Virtual environments (already covered but explicit)
+pip-wheel-metadata/
+pip-install-record.txt

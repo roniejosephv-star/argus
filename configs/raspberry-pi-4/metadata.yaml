@@ -1,0 +1,13 @@
+soc_model: BCM2711 (Pi 4)
+fingerprint: a1b2c3d4e5f6789012345678abcdef01abcdef01abcdef01abcdef01abcdef01
+argus_version: 0.1.0
+generated_at: '2026-07-16T04:37:44.713936'
+tier: micro-ros
+tier_score: 33
+artifacts:
+- cyclonedds.xml
+- fastdds.xml
+- zenoh_advice.md
+- sysctl.conf
+- build_flags.json
+- install_ros2.sh

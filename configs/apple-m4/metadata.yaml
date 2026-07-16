@@ -1,0 +1,13 @@
+soc_model: Apple M4
+fingerprint: m4_fp
+argus_version: 0.1.0
+generated_at: '2026-07-16T04:40:13.029464'
+tier: ros-base-full
+tier_score: 68
+artifacts:
+- cyclonedds.xml
+- fastdds.xml
+- zenoh_advice.md
+- sysctl.conf
+- build_flags.json
+- install_ros2.sh

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<profiles xmlns="http://www.eprosima.com/XMLSchemas/fastRTPS_Profiles">
+  <transport_descriptors>
+    <transport_descriptor>
+      <transport_id>shm_and_udp</transport_id>
+      <type>SHM</type>
+      <enable_udp>true</enable_udp>
+      <max_message_size>1048576</max_message_size>
+      <send_buffer_size>393216</send_buffer_size>
+      <receive_buffer_size>786432</receive_buffer_size>
+    </transport_descriptor>
+  </transport_descriptors>
+  <participant profile_name="argus_optimized" is_default_profile="true">
+    <rtps>
+      <builtin>
+        <metatrafficUnicastLocatorList>
+          <locator>
+            <udpv4/>
+          </locator>
+        </metatrafficUnicastLocatorList>
+        <metatrafficMulticastLocatorList>
+          <locator>
+            <udpv4/>
+          </locator>
+        </metatrafficMulticastLocatorList>
+        <initialPeersList/>
+      </builtin>
+      <port>
+        <portBase>7400</portBase>
+      </port>
+      <useBuiltinTransports>false</useBuiltinTransports>
+      <userTransports>
+        <transport_id>shm_and_udp</transport_id>
+      </userTransports>
+    </rtps>
+    <historyMemoryPolicy>DYNAMIC</historyMemoryPolicy>
+  </participant>
+</profiles>
