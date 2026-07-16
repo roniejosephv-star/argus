@@ -118,6 +118,47 @@ def create_server() -> FastMCP:
     @mcp.tool(name="project_run_command", description="Remote project management: execute build or test commands (colcon build, pytest) with timeout")
     async def project_run_command_mcp(command: str, cwd: str = ".", timeout_s: int = 300) -> Any:
         return execute_tool("project_run_command", {"command": command, "cwd": cwd, "timeout_s": timeout_s})
+
+    @mcp.tool(name="ros2_status", description="Check ROS 2 installation status on this target device")
+    async def ros2_status_mcp() -> Any:
+        from argus.robotics import check_ros2_environment
+        return check_ros2_environment("host")
+
+    @mcp.tool(name="ros2_create_package", description="Scaffold a new ROS 2 package inside ~/ros2_ws/src")
+    async def ros2_create_package_mcp(package_name: str, build_type: str = "ament_python", dependencies: list[str] | None = None) -> Any:
+        from argus.robotics import ros2_create_package
+        return ros2_create_package(package_name, build_type=build_type, target_id_or_ip="host", dependencies=dependencies)
+
+    @mcp.tool(name="ros2_build", description="Compile ROS 2 workspace (~/ros2_ws) using colcon build")
+    async def ros2_build_mcp(package_name: str | None = None) -> Any:
+        from argus.robotics import ros2_build
+        return ros2_build(target_id_or_ip="host", pkg_name=package_name)
+
+    @mcp.tool(name="ros2_launch", description="Launch a ROS 2 node in background")
+    async def ros2_launch_mcp(package_name: str, node_exec: str) -> Any:
+        from argus.robotics import ros2_launch_node
+        return ros2_launch_node(package_name, node_exec, target_id_or_ip="host")
+
+    @mcp.tool(name="ros2_pub", description="Publish a message (`--once`) to a ROS 2 topic")
+    async def ros2_pub_mcp(topic: str, msg_type: str, data_json: str) -> Any:
+        from argus.robotics import ros2_topic_pub
+        return ros2_topic_pub(topic, msg_type, data_json, target_id_or_ip="host")
+
+    @mcp.tool(name="ros2_echo", description="Echo recent messages from a ROS 2 topic")
+    async def ros2_echo_mcp(topic: str, lines: int = 5) -> Any:
+        from argus.robotics import ros2_topic_echo
+        return ros2_topic_echo(topic, target_id_or_ip="host", lines=lines)
+
+    @mcp.tool(name="deploy_smart_tv_project", description="Deploy and launch the Smart TV Robotics Controller node on this device")
+    async def deploy_smart_tv_project_mcp() -> Any:
+        from argus.robotics import deploy_smart_tv_project
+        return deploy_smart_tv_project("host")
+
+    @mcp.tool(name="get_test_logs", description="Retrieve diagnostic structured JSON logs (`phase1_banner`, `phase2_bridge`, `phase3_ros2`)")
+    async def get_test_logs_mcp(phase: str = "phase3_ros2") -> Any:
+        from argus.common import ArgusLogger
+        logger = ArgusLogger.get_instance()
+        return logger.get_phase_logs(phase)
     
     # Register resources
     for uri, handler in RESOURCE_HANDLERS.items():
@@ -133,7 +174,7 @@ def create_server() -> FastMCP:
 async def run_stdio():
     """Run MCP server over stdio transport."""
     server = create_server()
-    await server.run_stdio_async()
+    await server.run_stdio_async(show_banner=False, log_level="CRITICAL")
 
 
 async def run_http(host: str = "127.0.0.1", port: int = 8765):

@@ -75,3 +75,7 @@ argus-reports/
 # Virtual environments (already covered but explicit)
 pip-wheel-metadata/
 pip-install-record.txt
+
+# AI Assistant & Local Test Logs
+.gemini/
+test_logs/

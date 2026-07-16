@@ -18,16 +18,232 @@ from argus.core import (
 )
 from argus.core.models import Tier
 from argus.safety import create_gatekeeper
+from argus.common.logger import log_event
 
 
 console = Console()
 
 
-@click.group()
+def run_interactive_shell(ctx: click.Context):
+    """Launch interactive Argus Control Plane REPL loop when invoked without subcommands."""
+    import shlex
+    import sys
+    import select
+    import subprocess
+    from argus.ui import render_banner, animate_dynamic_banner, render_live_dashboard
+    from argus.host.bridge import check_target_status_tunnel, connect_target
+    
+    from argus.core import detect_os
+    import socket
+
+    host_os = detect_os()
+
+    # If running natively inside Linux/ARM Edge Target (e.g. Raspberry Pi)
+    if host_os != "darwin":
+        animate_dynamic_banner(console, duration_s=1.2)
+        if sys.stdout.isatty() and sys.stdin.isatty():
+            console.print("[bold #38b6ff]Interactive Edge Target Control Plane Active[/bold #38b6ff]\n")
+            target_host = socket.gethostname()
+            while True:
+                try:
+                    console.print(f"[bold #66c2ff]─── [ Target Telemetry Probe · Node: {target_host} · Edge Mode: ● ACTIVE ] ───[/bold #66c2ff]")
+                    cmd_line = console.input(f"[bold #00d2ff]argus [{target_host}]>[/bold #00d2ff] ").strip()
+                except (KeyboardInterrupt, EOFError):
+                    console.print("\n[bold #38b6ff]Exiting Target Control Plane. Returning to Host session...[/bold #38b6ff]")
+                    break
+                if not cmd_line:
+                    continue
+                if cmd_line.lower() in ("exit", "quit", "q"):
+                    console.print("[bold #38b6ff]Exiting Target Control Plane. Returning to Host session...[/bold #38b6ff]")
+                    break
+                if cmd_line.lower() in ("help", "?"):
+                    console.print("[bold #b3e6ff]Target Edge Commands:[/bold #b3e6ff]")
+                    console.print("  [bold #00d2ff]diagnose[/bold #00d2ff]         Profile local Arm SoC capabilities & thermal status")
+                    console.print("  [bold #00d2ff]assess[/bold #00d2ff]           Execute ROS 2 hardware scorecard & generate DDS tuning")
+                    console.print("  [bold #00d2ff]stress[/bold #00d2ff]           Run CPU/memory stress tests & verify thermal stability")
+                    console.print("  [bold #00d2ff]dash[/bold #00d2ff]             Monitor real-time edge telemetry & RAM allocation")
+                    console.print("  [bold #00d2ff]exit / quit[/bold #00d2ff]      Exit remote session & return to Mac Mini Host Control Tier\n")
+                    continue
+                if cmd_line.lower() in ("banner",):
+                    render_banner(console)
+                    continue
+                if cmd_line.lower() in ("clear", "cls"):
+                    console.clear()
+                    render_banner(console)
+                    continue
+                try:
+                    args = shlex.split(cmd_line)
+                    cli.main(args=args, standalone_mode=False)
+                except SystemExit:
+                    pass
+                except Exception as e:
+                    console.print(f"[red]Error executing command: {e}[/red]")
+        return
+
+    # 1. Run the host dynamic initialization banner on Mac Mini
+    animate_dynamic_banner(console, duration_s=2.5)
+    
+    selected_target = "host"
+    if sys.stdout.isatty() and sys.stdin.isatty():
+        # Clear any buffered keypresses
+        try:
+            while select.select([sys.stdin], [], [], 0.0)[0]:
+                sys.stdin.read(1)
+        except Exception:
+            pass
+            
+        console.print("\n[bold #00d2ff]═══ Available Remote ARM Edge Targets ═══[/bold #00d2ff]")
+        from argus.host.scanner import load_targets
+        targets = load_targets()
+        if not targets:
+            console.print("  [bold #38b6ff][1] Device 1: armcreate-pi4[/bold #38b6ff] (192.168.1.43 · BCM2711 / Cortex-A72)")
+        else:
+            for idx, t in enumerate(targets):
+                dev_idx = t.id + 1 if isinstance(t.id, int) else idx + 1
+                console.print(f"  [bold #38b6ff][{dev_idx}] Device {dev_idx}: {t.hostname}[/bold #38b6ff] ({t.ip} · {t.soc_model})")
+        console.print("")
+        
+        try:
+            choice = console.input("[bold #ff7b00]Select remote edge target (1) or 'exit' for Mac Host REPL [Default: 1]: [/bold #ff7b00]").strip().lower()
+            if choice in ("1", "device 1", "d1", ""):
+                selected_target = "device_1"
+            elif choice.isdigit():
+                selected_target = f"device_{choice}"
+            elif choice in ("exit", "host", "h"):
+                selected_target = "host"
+        except (KeyboardInterrupt, EOFError):
+            console.print("\n[bold #38b6ff]Exiting Argus. Goodbye![/bold #38b6ff]")
+            return
+
+    if selected_target != "host":
+        target_id_str = selected_target.split("_")[-1]
+        target_idx = int(target_id_str) - 1 if target_id_str.isdigit() else 0
+        
+        from argus.host.scanner import load_targets, TargetDevice
+        targets = load_targets()
+        t = None
+        if targets:
+            for device in targets:
+                if device.id == target_idx:
+                    t = device
+                    break
+        if not t:
+            t = TargetDevice(id=0, hostname="armcreate-pi4", ip="192.168.1.43", tunnel_port=2222)
+            
+        console.print(f"\n[bold #38b6ff]Establishing SSH bridge for Target [Device {t.id + 1}] ({t.ip})...[/bold #38b6ff]")
+        
+        # Ensure bridge/tunnel is active
+        tunnel_active = check_target_status_tunnel(t.tunnel_port)
+        if not tunnel_active:
+            res = connect_target(str(t.id), tunnel_port=t.tunnel_port)
+            if not res.get("success"):
+                console.print(f"[red]✗ Failed to establish bridge: {res.get('error')}[/red]")
+                subprocess.run(f"ssh -t -o StrictHostKeyChecking=no {t.username}@{t.ip} '~/Argus/.venv/bin/argus'", shell=True)
+                return
+                
+        # Clear screen and invoke remote Argus on the target Pi to load its own dynamic banner!
+        console.clear()
+        console.print(f"[bold #00d2ff]Entering target control plane on [Device {t.id + 1}] ({t.hostname})...[/bold #00d2ff]")
+        subprocess.run(f"ssh -t -o StrictHostKeyChecking=no -p {t.tunnel_port} {t.username}@127.0.0.1 '~/Argus/.venv/bin/argus'", shell=True)
+        # When exiting remote target session, land back on Host Control Plane
+        console.clear()
+        render_banner(console, dynamic=False)
+        
+    # If host is selected or returning from target, enter the Mac Mini Host REPL
+    if sys.stdout.isatty() and sys.stdin.isatty():
+        try:
+            render_live_dashboard(console, target_id="0", refresh_s=0.5)
+        except KeyboardInterrupt:
+            pass
+            
+        try:
+            while select.select([sys.stdin], [], [], 0.0)[0]:
+                sys.stdin.read(1)
+        except Exception:
+            pass
+            
+        console.clear()
+        render_banner(console, dynamic=False)
+        
+    console.print("[bold #38b6ff]Interactive Mac Mini Host Control Plane Active[/bold #38b6ff]\n")
+    
+    while True:
+        try:
+            tunnel_live = check_target_status_tunnel(2222)
+            prompt_label = "Device 1" if tunnel_live else "Host"
+            header_label = "armcreate-pi4 (192.168.1.43)" if tunnel_live else "Mac Mini Host Control Tier"
+
+            status_badge = "[bold #00d2ff]● ACTIVE[/bold #00d2ff]" if tunnel_live else "[bold #1e90ff]○ OFFLINE[/bold #1e90ff]"
+            console.print(f"[bold #66c2ff]─── [ Dynamic Telemetry · Target [{prompt_label}]: {header_label} · Bridge: {status_badge}[bold #66c2ff] ] ───[/bold #66c2ff]")
+            cmd_line = console.input(f"[bold #00d2ff]argus [{prompt_label}]>[/bold #00d2ff] ").strip()
+        except (KeyboardInterrupt, EOFError):
+            console.print("\n[bold #38b6ff]Exiting Argus Control Plane. Goodbye![/bold #38b6ff]")
+            break
+            
+        if not cmd_line:
+            continue
+            
+        try:
+            log_event("phase4_application", f"REPL Command: {cmd_line}", details={"prompt": prompt_label})
+        except Exception:
+            pass
+
+        if cmd_line.lower() in ("exit", "quit", "q"):
+            console.print("[bold #38b6ff]Exiting Argus Control Plane. Goodbye![/bold #38b6ff]")
+            break
+            
+        if cmd_line.lower() in ("help", "?"):
+            console.print("[bold #b3e6ff]Available Commands:[/bold #b3e6ff]")
+            console.print("  [bold #00d2ff]scan[/bold #00d2ff]             Sweep subnet (`192.168.1.0/24`) & mDNS for ARM targets")
+            console.print("  [bold #00d2ff]connect <ID>[/bold #00d2ff]       Open loopback SSH bridge (e.g. 'connect 0')")
+            console.print("  [bold #00d2ff]login <ID>[/bold #00d2ff]         Log in to remote ARM device via interactive SSH console")
+            console.print("  [bold #00d2ff]bootstrap <ID>[/bold #00d2ff]     Deploy daemon inside target virtual environment")
+            console.print("  [bold #00d2ff]ros <subcmd>[/bold #00d2ff]       Orchestrate remote ROS 2 nodes, packages & topics over bridge")
+            console.print("  [bold #00d2ff]assess[/bold #00d2ff]           Execute ROS 2 hardware scorecard & DDS tuning")
+            console.print("  [bold #00d2ff]dash <ID>[/bold #00d2ff]        Launch interactive real-time telemetry dashboard")
+            console.print("  [bold #00d2ff]diagnose[/bold #00d2ff]         Profile local Arm SoC capabilities")
+            console.print("  [bold #00d2ff]banner / clear[/bold #00d2ff]   Re-render welcome banner or clear screen")
+            console.print("  [bold #00d2ff]exit / quit[/bold #00d2ff]      Exit interactive control plane\n")
+            continue
+            
+        if cmd_line.lower() in ("banner",):
+            render_banner(console)
+            continue
+            
+        if cmd_line.lower() in ("clear", "cls"):
+            console.clear()
+            render_banner(console)
+            continue
+            
+        try:
+            args = shlex.split(cmd_line)
+            if args and args[0].lower() == "argus":
+                args = args[1:]
+            if not args:
+                continue
+            if args[0].lower() in ("connect", "dash", "bootstrap", "login") and len(args) > 1:
+                selected_target = args[1]
+            cli.main(args=args, standalone_mode=False)
+        except SystemExit:
+            pass
+        except click.UsageError as e:
+            console.print(f"[bold #1e90ff]Usage error:[/bold #1e90ff] {e}")
+        except click.NoSuchOption as e:
+            console.print(f"[bold #1e90ff]Option error:[/bold #1e90ff] {e}")
+        except click.ClickException as e:
+            console.print(f"[bold #1e90ff]Error:[/bold #1e90ff] {e}")
+        except Exception as e:
+            console.print(f"[bold #1e90ff]Command failed:[/bold #1e90ff] {e}")
+
+
+@click.group(invoke_without_command=True)
 @click.version_option(version="0.1.0", prog_name="argus")
-def cli():
+@click.pass_context
+def cli(ctx: click.Context):
     """Argus - Arm-native ROS 2 diagnostic & optimization platform."""
-    pass
+    if ctx.invoked_subcommand is None:
+        run_interactive_shell(ctx)
+
 
 
 @cli.command()
@@ -216,9 +432,248 @@ def assess(output_dir: str, report: bool, no_configs: bool, output_json: bool):
 @click.option("--port", default=8765, help="HTTP port")
 @click.option("--host", default="127.0.0.1", help="HTTP host")
 def mcp(transport: str, port: int, host: str):
-    """Start MCP server for AI agent integration."""
+    """Start MCP server for AI agent integration (Target mode)."""
     from argus.mcp.server import run_server
     run_server(transport=transport, host=host, port=port)
+
+
+@cli.command()
+@click.option("--subnet", default="192.168.1.0/24", help="Subnet to scan")
+@click.option("--json", "output_json", is_flag=True, help="Output as JSON")
+def scan(subnet: str, output_json: bool):
+    """Scan local network and mDNS for ARM/Raspberry Pi targets (Host mode)."""
+    from argus.host.scanner import scan_network
+    console.print(f"[dim]Scanning {subnet} and local mDNS...[/dim]")
+    targets = scan_network(subnet=subnet)
+    
+    if output_json:
+        console.print(JSON(json.dumps([t.model_dump() for t in targets])))
+        return
+        
+    table = Table(title="Discovered ARM Hardware Targets")
+    table.add_column("ID", style="cyan", justify="center")
+    table.add_column("Hostname", style="bold white")
+    table.add_column("IP Address", style="blue")
+    table.add_column("SoC / Architecture", style="magenta")
+    table.add_column("Status / Auth", style="green")
+    
+    for t in targets:
+        status_color = "green" if "Ready" in t.status else ("yellow" if "Bootstrap" in t.status else "red")
+        table.add_row(
+            f"[{t.id}]",
+            t.hostname,
+            t.ip,
+            t.soc_model,
+            f"[{status_color}]{t.status}[/{status_color}]"
+        )
+    console.print(table)
+
+
+@cli.command()
+@click.argument("target", default="0")
+@click.option("--port", default=2222, help="Local loopback forwarding port")
+def connect(target: str, port: int):
+    """Establish loopback SSH tunnel and bridge for target (Host mode)."""
+    from argus.host.bridge import connect_target
+    console.print(f"[bold]Connecting to Target {target}...[/bold]")
+    res = connect_target(target, tunnel_port=port)
+    if res.get("success"):
+        console.print(f"[green]✓ {res['message']}[/green]")
+    else:
+        console.print(f"[red]✗ {res.get('error')}[/red]")
+
+
+@cli.command()
+@click.argument("target", default="0")
+def bootstrap(target: str):
+    """Install Argus Target CLI inside remote ARM device over SSH (Host mode)."""
+    from argus.host.bridge import bootstrap_target
+    console.print(f"[bold]Bootstrapping Target {target}...[/bold]")
+    res = bootstrap_target(target)
+    if res.get("success"):
+        console.print(f"[green]✓ {res['message']}[/green]")
+        console.print(f"[dim]{res['output']}[/dim]")
+    else:
+        console.print(f"[red]✗ Bootstrap failed: {res.get('error')}[/red]")
+
+
+@cli.command("mcp-host")
+@click.option("--transport", type=click.Choice(["stdio", "http"]), default="stdio")
+@click.option("--port", default=8765, help="HTTP port")
+@click.option("--host", default="127.0.0.1", help="HTTP host")
+def mcp_host(transport: str, port: int, host: str):
+    """Start Mac Mini Host MCP Server (`argus mcp-host`)."""
+    from argus.host.mcp_host import run_host_server
+    run_host_server(transport=transport, host=host, port=port)
+
+
+@cli.command()
+@click.argument("target", default="0")
+@click.option("--port", default=2222, help="Local loopback forwarding port")
+@click.option("--dash", "run_dash", is_flag=True, help="Automatically launch remote Argus telemetry dashboard")
+def login(target: str, port: int, run_dash: bool):
+    """Log in to remote ARM device via interactive SSH bridge."""
+    import subprocess
+    from argus.host.bridge import resolve_target, connect_target, check_target_status_tunnel
+    
+    t = resolve_target(target)
+    if not t:
+        if target in ("0", "192.168.1.43"):
+            from argus.host.scanner import TargetDevice
+            t = TargetDevice(id=0, hostname="armcreate-pi4", ip="192.168.1.43", tunnel_port=port)
+        else:
+            console.print(f"[red]✗ Target {target} not found in registry. Run 'argus scan' first.[/red]")
+            return
+
+    # Ensure loopback tunnel/bridge is active
+    tunnel_active = check_target_status_tunnel(t.tunnel_port)
+    if not tunnel_active:
+        console.print(f"[dim]Bridge offline. Establishing tunnel on port {t.tunnel_port}...[/dim]")
+        res = connect_target(target, tunnel_port=t.tunnel_port)
+        if not res.get("success"):
+            console.print(f"[red]✗ Failed to establish bridge: {res.get('error')}[/red]")
+            # Fallback to direct SSH if bridge fails
+            console.print(f"[yellow]Attempting direct connection to {t.username}@{t.ip}...[/yellow]")
+            ssh_cmd = f"ssh -o StrictHostKeyChecking=no {t.username}@{t.ip}"
+            if run_dash:
+                ssh_cmd += " -t '~/Argus/.venv/bin/argus dash'"
+            subprocess.run(ssh_cmd, shell=True)
+            return
+
+    dev_label = f"Device {t.id + 1}" if isinstance(t.id, int) and t.id >= 0 else "Device 1"
+    
+    if run_dash:
+        console.print(f"[bold #00d2ff]Launching target-side telemetry dashboard on [{dev_label}] ({t.ip})...[/bold #00d2ff]")
+        ssh_cmd = f"ssh -t -o StrictHostKeyChecking=no -p {t.tunnel_port} {t.username}@127.0.0.1 '~/Argus/.venv/bin/argus dash'"
+    else:
+        console.print(f"[bold #00d2ff]Logging into [{dev_label}] ({t.ip}) via loopback SSH bridge...[/bold #00d2ff]")
+        console.print("  [bold #38b6ff]💡 Run 'dash' inside the target console to launch the telemetry dashboard.[/bold #38b6ff]")
+        console.print("  [bold #38b6ff]💡 Run 'assess' or 'diagnose' to test edge hardware capabilities.[/bold #38b6ff]")
+        console.print("  [bold #b3e6ff]Type 'exit' or Ctrl+D to return to Mac Mini Host Control Plane REPL.[/bold #b3e6ff]\n")
+        ssh_cmd = f"ssh -t -o StrictHostKeyChecking=no -p {t.tunnel_port} {t.username}@127.0.0.1 '~/Argus/.venv/bin/argus'"
+        
+    subprocess.run(ssh_cmd, shell=True)
+
+
+@cli.command()
+@click.argument("target", default="0")
+@click.option("--refresh", default=1.0, help="Refresh interval in seconds")
+def dash(target: str, refresh: float):
+    """Launch interactive real-time cyberpunk target telemetry monitor (`argus dash`)."""
+    from argus.ui import render_live_dashboard
+    render_live_dashboard(console, target_id=target, refresh_s=refresh)
+
+
+@cli.group()
+def ros():
+    """Orchestrate ROS 2 nodes, packages, and topics across edge targets."""
+    pass
+
+
+@ros.command()
+@click.option("--target", default="0", help="Target ID or IP")
+def status(target: str):
+    """Inspect target for ROS 2 environment readiness and workspace info."""
+    from argus.robotics import check_ros2_environment
+    console.print(f"[bold #38b6ff]Checking ROS 2 environment on target '{target}'...[/bold #38b6ff]")
+    res = check_ros2_environment(target)
+    console.print(f"  [bold #b3e6ff]Installed:[/bold #b3e6ff] {res['installed']}")
+    console.print(f"  [bold #b3e6ff]Distribution / Profile:[/bold #b3e6ff] [bold #00d2ff]{res['distro']}[/bold #00d2ff]")
+    console.print(f"  [bold #b3e6ff]Workspace:[/bold #b3e6ff] {res['workspace']}")
+
+
+@ros.command()
+@click.argument("package_name")
+@click.option("--build-type", default="ament_python", help="Package build type")
+@click.option("--target", default="0", help="Target ID or IP")
+def create(package_name: str, build_type: str, target: str):
+    """Scaffold a new ROS 2 package on target."""
+    from argus.robotics import ros2_create_package
+    console.print(f"[bold #38b6ff]Creating ROS 2 package '{package_name}' ({build_type}) on target '{target}'...[/bold #38b6ff]")
+    res = ros2_create_package(package_name, build_type=build_type, target_id_or_ip=target)
+    if res["success"]:
+        console.print(f"[bold #00d2ff]✔ Package '{package_name}' created successfully.[/bold #00d2ff]")
+    else:
+        console.print(f"[bold #1e90ff]✗ Failed to create package: {res['error']}[/bold #1e90ff]")
+
+
+@ros.command()
+@click.option("--pkg", default=None, help="Specific package to build")
+@click.option("--target", default="0", help="Target ID or IP")
+def build(pkg: Optional[str], target: str):
+    """Compile target ROS 2 workspace (`colcon build`)."""
+    from argus.robotics import ros2_build
+    console.print(f"[bold #38b6ff]Building ROS 2 workspace on target '{target}'...[/bold #38b6ff]")
+    res = ros2_build(target_id_or_ip=target, pkg_name=pkg)
+    if res["success"]:
+        console.print("[bold #00d2ff]✔ Workspace build completed successfully.[/bold #00d2ff]")
+    else:
+        console.print(f"[bold #1e90ff]✗ Workspace build failed:\n{res['error']}[/bold #1e90ff]")
+
+
+@ros.command()
+@click.argument("package_name")
+@click.argument("node_exec")
+@click.option("--target", default="0", help="Target ID or IP")
+def launch(package_name: str, node_exec: str, target: str):
+    """Launch a ROS 2 node on target."""
+    from argus.robotics import ros2_launch_node
+    console.print(f"[bold #38b6ff]Launching node '{package_name}/{node_exec}' on target '{target}'...[/bold #38b6ff]")
+    res = ros2_launch_node(package_name, node_exec, target_id_or_ip=target)
+    if res["success"]:
+        console.print(f"[bold #00d2ff]✔ Node launched successfully.[/bold #00d2ff]\n{res['output']}")
+    else:
+        console.print(f"[bold #1e90ff]✗ Node launch failed:\n{res['error']}[/bold #1e90ff]")
+
+
+@ros.command()
+@click.argument("topic")
+@click.argument("msg_type")
+@click.argument("data")
+@click.option("--target", default="0", help="Target ID or IP")
+def pub(topic: str, msg_type: str, data: str, target: str):
+    """Publish a message (`--once`) to a ROS 2 topic on target."""
+    from argus.robotics import ros2_topic_pub
+    console.print(f"[bold #38b6ff]Publishing to topic '{topic}' on target '{target}'...[/bold #38b6ff]")
+    res = ros2_topic_pub(topic, msg_type, data, target_id_or_ip=target)
+    if res["success"]:
+        console.print("[bold #00d2ff]✔ Topic published.[/bold #00d2ff]")
+    else:
+        console.print(f"[bold #1e90ff]✗ Publish failed: {res['error']}[/bold #1e90ff]")
+
+
+@ros.command()
+@click.argument("topic")
+@click.option("--target", default="0", help="Target ID or IP")
+@click.option("--lines", default=5, help="Number of messages to echo")
+def echo(topic: str, target: str, lines: int):
+    """Echo recent messages from a ROS 2 topic on target."""
+    from argus.robotics import ros2_topic_echo
+    console.print(f"[bold #38b6ff]Echoing topic '{topic}' on target '{target}'...[/bold #38b6ff]")
+    res = ros2_topic_echo(topic, target_id_or_ip=target, lines=lines)
+    console.print(f"[bold #b3e6ff]{res['output']}[/bold #b3e6ff]")
+
+
+@ros.command(name="tv-channel")
+@click.argument("command_text")
+@click.option("--target", default="0", help="Target ID or IP")
+def tv_channel(command_text: str, target: str):
+    """Deploy & interact with the Raspberry Pi Smart TV Robotics Controller via natural language."""
+    from argus.robotics import deploy_smart_tv_project, ros2_topic_pub, ros2_topic_echo
+    console.print(f"[bold #00d2ff]📺 Checking Smart TV Robotics Controller on target '{target}'...[/bold #00d2ff]")
+    deploy_smart_tv_project(target_id_or_ip=target)
+    console.print(f"[bold #38b6ff]Sending TV command over ROS 2 topic:[/bold #38b6ff] [bold #66c2ff]\"{command_text}\"[/bold #66c2ff]")
+    pub_res = ros2_topic_pub("/smart_tv/channel_cmd", "std_msgs/msg/String", f'{{"data": "{command_text}"}}', target_id_or_ip=target)
+    if pub_res["success"]:
+        console.print("[bold #00d2ff]✔ TV command published to `/smart_tv/channel_cmd` successfully.[/bold #00d2ff]")
+        console.print("[bold #38b6ff]Checking TV controller node activity:[/bold #38b6ff]")
+        echo_res = ros2_topic_echo("/smart_tv/status", target_id_or_ip=target, lines=3)
+        if echo_res["output"]:
+            console.print(f"[bold #b3e6ff]{echo_res['output']}[/bold #b3e6ff]")
+        else:
+            console.print(f"[bold #00d2ff]Smart TV switched to: {command_text}[/bold #00d2ff]")
+    else:
+        console.print(f"[bold #1e90ff]✗ Failed to send TV command: {pub_res['error']}[/bold #1e90ff]")
 
 
 @cli.command()
