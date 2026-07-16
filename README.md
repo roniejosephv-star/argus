@@ -23,7 +23,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/roniejosephv-star/argus/actions"><img src="https://github.com/roniejosephv-star/argus/workflows/CI/badge.svg" alt="CI Status"></a>
+  <a href="https://github.com/roniejosephv-star/argus/actions"><img src="https://github.com/roniejosephv-star/argus/actions/workflows/ci.yml/badge.svg" alt="CI Status"></a>
   <a href="https://pypi.org/project/argus/"><img src="https://img.shields.io/pypi/v/argus.svg" alt="PyPI Version"></a>
   <a href="https://github.com/roniejosephv-star/argus/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a>
   <a href="https://python.org"><img src="https://img.shields.io/badge/python-3.11%2B-blue.svg" alt="Python 3.11+"></a>
@@ -49,6 +49,12 @@ Deploying high-performance robotics (ROS 2, DDS, AI Agents) across distributed A
 2. **ARM Edge Target Tier (`argus` natively on Linux/aarch64):** Runs directly on edge boards (Raspberry Pi 4/5, etc.). It inspects `/proc`, `/sys`, and CPU topology, executes hardware scorecards (`assess`), runs thermal/RAM stress tests (`stress`), serves target-side MCP tools, and manages native ROS 2 nodes and topics.
 
 > **Name Origin:** *Argus Panoptes* — the all-seeing giant of Greek mythology with 100 eyes. Argus sees every detail of your distributed Arm hardware fleet.
+
+<br>
+<p align="center">
+  <img src="assets/terminal_host.svg" alt="Mac Mini Host Terminal Control Plane" width="95%">
+</p>
+<br>
 
 ---
 
@@ -146,9 +152,17 @@ Argus automatically adapts its menu and available commands depending on whether 
 | :--- | :--- | :--- |
 | **Diagnose SoC** | `argus diagnose` | Profiles local Arm SoC, cache lines, ISA extensions, thermal zones, and serial ports. |
 | **Assess Tier** | `argus assess` | Evaluates hardware against ROS 2 tiers and generates all 7 optimal DDS/sysctl configs. |
-| **Stress Hardware** | `argus stress --duration 30` | Executes multi-core CPU & memory stress tests while tracking thermal throttling risk. |
-| **Live Telemetry** | `argus dash` | Launches a real-time cyberpunk terminal dashboard tracking RAM, CPU, and thermal status. |
 | **Target MCP Server** | `argus mcp` | Starts the target-side FastMCP server (**23 tools**) for direct hardware AI access. |
+
+<br>
+<p align="center">
+  <img src="assets/terminal_target.svg" alt="ARM Edge Target Control Tier" width="95%">
+</p>
+<br>
+<p align="center">
+  <img src="assets/terminal_dash.svg" alt="Argus Real-Time Telemetry Dashboard" width="95%">
+</p>
+<br>
 
 ---
 

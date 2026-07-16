@@ -1,0 +1,170 @@
+<svg class="rich-terminal" viewBox="0 0 1177 708.8" xmlns="http://www.w3.org/2000/svg">
+    <!-- Generated with Rich https://www.textualize.io -->
+    <style>
+
+    @font-face {
+        font-family: "Fira Code";
+        src: local("FiraCode-Regular"),
+                url("https://cdnjs.cloudflare.com/ajax/libs/firacode/6.2.0/woff2/FiraCode-Regular.woff2") format("woff2"),
+                url("https://cdnjs.cloudflare.com/ajax/libs/firacode/6.2.0/woff/FiraCode-Regular.woff") format("woff");
+        font-style: normal;
+        font-weight: 400;
+    }
+    @font-face {
+        font-family: "Fira Code";
+        src: local("FiraCode-Bold"),
+                url("https://cdnjs.cloudflare.com/ajax/libs/firacode/6.2.0/woff2/FiraCode-Bold.woff2") format("woff2"),
+                url("https://cdnjs.cloudflare.com/ajax/libs/firacode/6.2.0/woff/FiraCode-Bold.woff") format("woff");
+        font-style: bold;
+        font-weight: 700;
+    }
+
+    .terminal-3904383488-matrix {
+        font-family: Fira Code, monospace;
+        font-size: 20px;
+        line-height: 24.4px;
+        font-variant-east-asian: full-width;
+    }
+
+    .terminal-3904383488-title {
+        font-size: 18px;
+        font-weight: bold;
+        font-family: arial;
+    }
+
+    .terminal-3904383488-r1 { fill: #00d2ff }
+.terminal-3904383488-r2 { fill: #00d2ff;font-weight: bold }
+.terminal-3904383488-r3 { fill: #c5c8c6 }
+.terminal-3904383488-r4 { fill: #38b6ff;font-weight: bold }
+.terminal-3904383488-r5 { fill: #c5c8c6;font-weight: bold }
+.terminal-3904383488-r6 { fill: #00ff88;font-weight: bold }
+.terminal-3904383488-r7 { fill: #38b6ff }
+.terminal-3904383488-r8 { fill: #68a0b3;font-weight: bold }
+.terminal-3904383488-r9 { fill: #66c2ff;font-weight: bold }
+    </style>
+
+    <defs>
+    <clipPath id="terminal-3904383488-clip-terminal">
+      <rect x="0" y="0" width="1158.0" height="657.8" />
+    </clipPath>
+    <clipPath id="terminal-3904383488-line-0">
+    <rect x="0" y="1.5" width="1159" height="24.65"/>
+            </clipPath>
+<clipPath id="terminal-3904383488-line-1">
+    <rect x="0" y="25.9" width="1159" height="24.65"/>
+            </clipPath>
+<clipPath id="terminal-3904383488-line-2">
+    <rect x="0" y="50.3" width="1159" height="24.65"/>
+            </clipPath>
+<clipPath id="terminal-3904383488-line-3">
+    <rect x="0" y="74.7" width="1159" height="24.65"/>
+            </clipPath>
+<clipPath id="terminal-3904383488-line-4">
+    <rect x="0" y="99.1" width="1159" height="24.65"/>
+            </clipPath>
+<clipPath id="terminal-3904383488-line-5">
+    <rect x="0" y="123.5" width="1159" height="24.65"/>
+            </clipPath>
+<clipPath id="terminal-3904383488-line-6">
+    <rect x="0" y="147.9" width="1159" height="24.65"/>
+            </clipPath>
+<clipPath id="terminal-3904383488-line-7">
+    <rect x="0" y="172.3" width="1159" height="24.65"/>
+            </clipPath>
+<clipPath id="terminal-3904383488-line-8">
+    <rect x="0" y="196.7" width="1159" height="24.65"/>
+            </clipPath>
+<clipPath id="terminal-3904383488-line-9">
+    <rect x="0" y="221.1" width="1159" height="24.65"/>
+            </clipPath>
+<clipPath id="terminal-3904383488-line-10">
+    <rect x="0" y="245.5" width="1159" height="24.65"/>
+            </clipPath>
+<clipPath id="terminal-3904383488-line-11">
+    <rect x="0" y="269.9" width="1159" height="24.65"/>
+            </clipPath>
+<clipPath id="terminal-3904383488-line-12">
+    <rect x="0" y="294.3" width="1159" height="24.65"/>
+            </clipPath>
+<clipPath id="terminal-3904383488-line-13">
+    <rect x="0" y="318.7" width="1159" height="24.65"/>
+            </clipPath>
+<clipPath id="terminal-3904383488-line-14">
+    <rect x="0" y="343.1" width="1159" height="24.65"/>
+            </clipPath>
+<clipPath id="terminal-3904383488-line-15">
+    <rect x="0" y="367.5" width="1159" height="24.65"/>
+            </clipPath>
+<clipPath id="terminal-3904383488-line-16">
+    <rect x="0" y="391.9" width="1159" height="24.65"/>
+            </clipPath>
+<clipPath id="terminal-3904383488-line-17">
+    <rect x="0" y="416.3" width="1159" height="24.65"/>
+            </clipPath>
+<clipPath id="terminal-3904383488-line-18">
+    <rect x="0" y="440.7" width="1159" height="24.65"/>
+            </clipPath>
+<clipPath id="terminal-3904383488-line-19">
+    <rect x="0" y="465.1" width="1159" height="24.65"/>
+            </clipPath>
+<clipPath id="terminal-3904383488-line-20">
+    <rect x="0" y="489.5" width="1159" height="24.65"/>
+            </clipPath>
+<clipPath id="terminal-3904383488-line-21">
+    <rect x="0" y="513.9" width="1159" height="24.65"/>
+            </clipPath>
+<clipPath id="terminal-3904383488-line-22">
+    <rect x="0" y="538.3" width="1159" height="24.65"/>
+            </clipPath>
+<clipPath id="terminal-3904383488-line-23">
+    <rect x="0" y="562.7" width="1159" height="24.65"/>
+            </clipPath>
+<clipPath id="terminal-3904383488-line-24">
+    <rect x="0" y="587.1" width="1159" height="24.65"/>
+            </clipPath>
+<clipPath id="terminal-3904383488-line-25">
+    <rect x="0" y="611.5" width="1159" height="24.65"/>
+            </clipPath>
+    </defs>
+
+    <rect fill="#292929" stroke="rgba(255,255,255,0.35)" stroke-width="1" x="1" y="1" width="1175" height="706.8" rx="8"/><text class="terminal-3904383488-title" fill="#c5c8c6" text-anchor="middle" x="587" y="27">Argus&#160;ARM&#160;Edge&#160;Target&#160;Control&#160;Tier</text>
+            <g transform="translate(26,22)">
+            <circle cx="0" cy="0" r="7" fill="#ff5f57"/>
+            <circle cx="22" cy="0" r="7" fill="#febc2e"/>
+            <circle cx="44" cy="0" r="7" fill="#28c840"/>
+            </g>
+        
+    <g transform="translate(9, 41)" clip-path="url(#terminal-3904383488-clip-terminal)">
+    
+    <g class="terminal-3904383488-matrix">
+    <text class="terminal-3904383488-r1" x="0" y="20" textLength="24.4" clip-path="url(#terminal-3904383488-line-0)">╭─</text><text class="terminal-3904383488-r1" x="24.4" y="20" textLength="427" clip-path="url(#terminal-3904383488-line-0)">───────────────────────────────────</text><text class="terminal-3904383488-r2" x="463.6" y="20" textLength="231.8" clip-path="url(#terminal-3904383488-line-0)">&#160;ARGUS&#160;EDGE&#160;STATUS&#160;</text><text class="terminal-3904383488-r1" x="707.6" y="20" textLength="427" clip-path="url(#terminal-3904383488-line-0)">───────────────────────────────────</text><text class="terminal-3904383488-r1" x="1134.6" y="20" textLength="24.4" clip-path="url(#terminal-3904383488-line-0)">─╮</text><text class="terminal-3904383488-r3" x="1159" y="20" textLength="12.2" clip-path="url(#terminal-3904383488-line-0)">
+</text><text class="terminal-3904383488-r1" x="0" y="44.4" textLength="12.2" clip-path="url(#terminal-3904383488-line-1)">│</text><text class="terminal-3904383488-r4" x="24.4" y="44.4" textLength="158.6" clip-path="url(#terminal-3904383488-line-1)">Version&#160;0.1.0</text><text class="terminal-3904383488-r3" x="183" y="44.4" textLength="36.6" clip-path="url(#terminal-3904383488-line-1)">&#160;·&#160;</text><text class="terminal-3904383488-r5" x="219.6" y="44.4" textLength="488" clip-path="url(#terminal-3904383488-line-1)">ARM&#160;Edge&#160;Target&#160;Control&#160;Tier&#160;(armCreate)</text><text class="terminal-3904383488-r3" x="707.6" y="44.4" textLength="36.6" clip-path="url(#terminal-3904383488-line-1)">&#160;·&#160;</text><text class="terminal-3904383488-r6" x="744.2" y="44.4" textLength="268.4" clip-path="url(#terminal-3904383488-line-1)">Dynamic&#160;Telemetry&#160;Sync</text><text class="terminal-3904383488-r1" x="1146.8" y="44.4" textLength="12.2" clip-path="url(#terminal-3904383488-line-1)">│</text><text class="terminal-3904383488-r3" x="1159" y="44.4" textLength="12.2" clip-path="url(#terminal-3904383488-line-1)">
+</text><text class="terminal-3904383488-r1" x="0" y="68.8" textLength="12.2" clip-path="url(#terminal-3904383488-line-2)">│</text><text class="terminal-3904383488-r6" x="24.4" y="68.8" textLength="732" clip-path="url(#terminal-3904383488-line-2)">✔&#160;ARGUS&#160;CONTROL&#160;PLANE&#160;ONLINE&#160;·&#160;TELEMETRY&#160;BRIDGE&#160;SYNCHRONIZED</text><text class="terminal-3904383488-r1" x="1146.8" y="68.8" textLength="12.2" clip-path="url(#terminal-3904383488-line-2)">│</text><text class="terminal-3904383488-r3" x="1159" y="68.8" textLength="12.2" clip-path="url(#terminal-3904383488-line-2)">
+</text><text class="terminal-3904383488-r1" x="0" y="93.2" textLength="1159" clip-path="url(#terminal-3904383488-line-3)">╰─────────────────────────────────────────────────────────────────────────────────────────────╯</text><text class="terminal-3904383488-r3" x="1159" y="93.2" textLength="12.2" clip-path="url(#terminal-3904383488-line-3)">
+</text><text class="terminal-3904383488-r7" x="0" y="117.6" textLength="24.4" clip-path="url(#terminal-3904383488-line-4)">╭─</text><text class="terminal-3904383488-r7" x="24.4" y="117.6" textLength="305" clip-path="url(#terminal-3904383488-line-4)">─────────────────────────</text><text class="terminal-3904383488-r4" x="341.6" y="117.6" textLength="463.6" clip-path="url(#terminal-3904383488-line-4)">&#160;EDGE&#160;TARGET&#160;CONTROL&#160;TIER&#160;:&#160;ARMCREATE&#160;</text><text class="terminal-3904383488-r7" x="817.4" y="117.6" textLength="317.2" clip-path="url(#terminal-3904383488-line-4)">──────────────────────────</text><text class="terminal-3904383488-r7" x="1134.6" y="117.6" textLength="24.4" clip-path="url(#terminal-3904383488-line-4)">─╮</text><text class="terminal-3904383488-r3" x="1159" y="117.6" textLength="12.2" clip-path="url(#terminal-3904383488-line-4)">
+</text><text class="terminal-3904383488-r7" x="0" y="142" textLength="12.2" clip-path="url(#terminal-3904383488-line-5)">│</text><text class="terminal-3904383488-r8" x="24.4" y="142" textLength="134.2" clip-path="url(#terminal-3904383488-line-5)">Target&#160;SoC:</text><text class="terminal-3904383488-r3" x="158.6" y="142" textLength="695.4" clip-path="url(#terminal-3904383488-line-5)">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;linux&#160;(aarch64)&#160;·&#160;Cortex-A72&#160;(4&#160;Cores&#160;@&#160;1.5GHz)</text><text class="terminal-3904383488-r7" x="1146.8" y="142" textLength="12.2" clip-path="url(#terminal-3904383488-line-5)">│</text><text class="terminal-3904383488-r3" x="1159" y="142" textLength="12.2" clip-path="url(#terminal-3904383488-line-5)">
+</text><text class="terminal-3904383488-r7" x="0" y="166.4" textLength="12.2" clip-path="url(#terminal-3904383488-line-6)">│</text><text class="terminal-3904383488-r8" x="24.4" y="166.4" textLength="183" clip-path="url(#terminal-3904383488-line-6)">Edge&#160;Telemetry:</text><text class="terminal-3904383488-r3" x="207.4" y="166.4" textLength="646.6" clip-path="url(#terminal-3904383488-line-6)">&#160;&#160;&#160;&#160;&#160;&#160;0.4&#160;/&#160;1.8&#160;GB&#160;RAM&#160;(22%)&#160;·&#160;Real-Time&#160;Dynamic&#160;Sync</text><text class="terminal-3904383488-r7" x="1146.8" y="166.4" textLength="12.2" clip-path="url(#terminal-3904383488-line-6)">│</text><text class="terminal-3904383488-r3" x="1159" y="166.4" textLength="12.2" clip-path="url(#terminal-3904383488-line-6)">
+</text><text class="terminal-3904383488-r7" x="0" y="190.8" textLength="12.2" clip-path="url(#terminal-3904383488-line-7)">│</text><text class="terminal-3904383488-r8" x="24.4" y="190.8" textLength="195.2" clip-path="url(#terminal-3904383488-line-7)">Host&#160;Connection:</text><text class="terminal-3904383488-r6" x="280.6" y="190.8" textLength="634.4" clip-path="url(#terminal-3904383488-line-7)">✔&#160;ACTIVE&#160;(Connected&#160;to&#160;Mac&#160;Mini&#160;via&#160;Loopback&#160;Bridge)</text><text class="terminal-3904383488-r7" x="1146.8" y="190.8" textLength="12.2" clip-path="url(#terminal-3904383488-line-7)">│</text><text class="terminal-3904383488-r3" x="1159" y="190.8" textLength="12.2" clip-path="url(#terminal-3904383488-line-7)">
+</text><text class="terminal-3904383488-r7" x="0" y="215.2" textLength="12.2" clip-path="url(#terminal-3904383488-line-8)">│</text><text class="terminal-3904383488-r8" x="24.4" y="215.2" textLength="195.2" clip-path="url(#terminal-3904383488-line-8)">AI&#160;Proxy&#160;Engine:</text><text class="terminal-3904383488-r3" x="219.6" y="215.2" textLength="671" clip-path="url(#terminal-3904383488-line-8)">&#160;&#160;&#160;&#160;&#160;Antigravity&#160;2.0&#160;Proxy&#160;Ready&#160;·&#160;FastMCP&#160;Stream&#160;Sync&#160;</text><text class="terminal-3904383488-r6" x="890.6" y="215.2" textLength="122" clip-path="url(#terminal-3904383488-line-8)">✔&#160;VERIFIED</text><text class="terminal-3904383488-r7" x="1146.8" y="215.2" textLength="12.2" clip-path="url(#terminal-3904383488-line-8)">│</text><text class="terminal-3904383488-r3" x="1159" y="215.2" textLength="12.2" clip-path="url(#terminal-3904383488-line-8)">
+</text><text class="terminal-3904383488-r7" x="0" y="239.6" textLength="12.2" clip-path="url(#terminal-3904383488-line-9)">│</text><text class="terminal-3904383488-r8" x="24.4" y="239.6" textLength="207.4" clip-path="url(#terminal-3904383488-line-9)">ROS&#160;2&#160;&amp;&#160;DDS&#160;Tier:</text><text class="terminal-3904383488-r6" x="280.6" y="239.6" textLength="658.8" clip-path="url(#terminal-3904383488-line-9)">✔&#160;ROS&#160;2&#160;&amp;&#160;FastDDS&#160;/&#160;CycloneDDS&#160;Configured&#160;·&#160;Node&#160;Ready</text><text class="terminal-3904383488-r7" x="1146.8" y="239.6" textLength="12.2" clip-path="url(#terminal-3904383488-line-9)">│</text><text class="terminal-3904383488-r3" x="1159" y="239.6" textLength="12.2" clip-path="url(#terminal-3904383488-line-9)">
+</text><text class="terminal-3904383488-r7" x="0" y="264" textLength="1159" clip-path="url(#terminal-3904383488-line-10)">╰─────────────────────────────────────────────────────────────────────────────────────────────╯</text><text class="terminal-3904383488-r3" x="1159" y="264" textLength="12.2" clip-path="url(#terminal-3904383488-line-10)">
+</text><text class="terminal-3904383488-r7" x="0" y="288.4" textLength="24.4" clip-path="url(#terminal-3904383488-line-11)">╭─</text><text class="terminal-3904383488-r7" x="24.4" y="288.4" textLength="329.4" clip-path="url(#terminal-3904383488-line-11)">───────────────────────────</text><text class="terminal-3904383488-r4" x="366" y="288.4" textLength="427" clip-path="url(#terminal-3904383488-line-11)">&#160;EDGE&#160;TARGET&#160;PERIPHERALS&#160;&amp;&#160;SENSORS&#160;</text><text class="terminal-3904383488-r7" x="805.2" y="288.4" textLength="329.4" clip-path="url(#terminal-3904383488-line-11)">───────────────────────────</text><text class="terminal-3904383488-r7" x="1134.6" y="288.4" textLength="24.4" clip-path="url(#terminal-3904383488-line-11)">─╮</text><text class="terminal-3904383488-r3" x="1159" y="288.4" textLength="12.2" clip-path="url(#terminal-3904383488-line-11)">
+</text><text class="terminal-3904383488-r7" x="0" y="312.8" textLength="12.2" clip-path="url(#terminal-3904383488-line-12)">│</text><text class="terminal-3904383488-r8" x="24.4" y="312.8" textLength="158.6" clip-path="url(#terminal-3904383488-line-12)">Thermal&#160;Zone:</text><text class="terminal-3904383488-r6" x="280.6" y="312.8" textLength="390.4" clip-path="url(#terminal-3904383488-line-12)">54.0°C&#160;(Nominal&#160;-&#160;No&#160;Throttling)</text><text class="terminal-3904383488-r7" x="1146.8" y="312.8" textLength="12.2" clip-path="url(#terminal-3904383488-line-12)">│</text><text class="terminal-3904383488-r3" x="1159" y="312.8" textLength="12.2" clip-path="url(#terminal-3904383488-line-12)">
+</text><text class="terminal-3904383488-r7" x="0" y="337.2" textLength="12.2" clip-path="url(#terminal-3904383488-line-13)">│</text><text class="terminal-3904383488-r8" x="24.4" y="337.2" textLength="170.8" clip-path="url(#terminal-3904383488-line-13)">UART&#160;&amp;&#160;Serial:</text><text class="terminal-3904383488-r3" x="195.2" y="337.2" textLength="817.4" clip-path="url(#terminal-3904383488-line-13)">&#160;&#160;&#160;&#160;&#160;&#160;&#160;Discovered&#160;(/dev/ttyS0,&#160;/dev/ttyAMA0)&#160;·&#160;Micro-ROS&#160;UART&#160;Ready</text><text class="terminal-3904383488-r7" x="1146.8" y="337.2" textLength="12.2" clip-path="url(#terminal-3904383488-line-13)">│</text><text class="terminal-3904383488-r3" x="1159" y="337.2" textLength="12.2" clip-path="url(#terminal-3904383488-line-13)">
+</text><text class="terminal-3904383488-r7" x="0" y="361.6" textLength="12.2" clip-path="url(#terminal-3904383488-line-14)">│</text><text class="terminal-3904383488-r8" x="24.4" y="361.6" textLength="170.8" clip-path="url(#terminal-3904383488-line-14)">DDS&#160;Transport:</text><text class="terminal-3904383488-r3" x="195.2" y="361.6" textLength="756.4" clip-path="url(#terminal-3904383488-line-14)">&#160;&#160;&#160;&#160;&#160;&#160;&#160;FastDDS&#160;Shared&#160;Memory&#160;/&#160;UDPv4&#160;Active&#160;(`micro-ros`&#160;Tier)</text><text class="terminal-3904383488-r7" x="1146.8" y="361.6" textLength="12.2" clip-path="url(#terminal-3904383488-line-14)">│</text><text class="terminal-3904383488-r3" x="1159" y="361.6" textLength="12.2" clip-path="url(#terminal-3904383488-line-14)">
+</text><text class="terminal-3904383488-r7" x="0" y="386" textLength="1159" clip-path="url(#terminal-3904383488-line-15)">╰─────────────────────────────────────────────────────────────────────────────────────────────╯</text><text class="terminal-3904383488-r3" x="1159" y="386" textLength="12.2" clip-path="url(#terminal-3904383488-line-15)">
+</text><text class="terminal-3904383488-r1" x="0" y="410.4" textLength="24.4" clip-path="url(#terminal-3904383488-line-16)">╭─</text><text class="terminal-3904383488-r1" x="24.4" y="410.4" textLength="390.4" clip-path="url(#terminal-3904383488-line-16)">────────────────────────────────</text><text class="terminal-3904383488-r2" x="427" y="410.4" textLength="292.8" clip-path="url(#terminal-3904383488-line-16)">&#160;EDGE&#160;COMMAND&#160;DIRECTORY&#160;</text><text class="terminal-3904383488-r1" x="732" y="410.4" textLength="402.6" clip-path="url(#terminal-3904383488-line-16)">─────────────────────────────────</text><text class="terminal-3904383488-r1" x="1134.6" y="410.4" textLength="24.4" clip-path="url(#terminal-3904383488-line-16)">─╮</text><text class="terminal-3904383488-r3" x="1159" y="410.4" textLength="12.2" clip-path="url(#terminal-3904383488-line-16)">
+</text><text class="terminal-3904383488-r1" x="0" y="434.8" textLength="12.2" clip-path="url(#terminal-3904383488-line-17)">│</text><text class="terminal-3904383488-r2" x="24.4" y="434.8" textLength="170.8" clip-path="url(#terminal-3904383488-line-17)">argus&#160;diagnose</text><text class="terminal-3904383488-r3" x="195.2" y="434.8" textLength="768.6" clip-path="url(#terminal-3904383488-line-17)">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Profile&#160;Arm&#160;SoC&#160;&amp;&#160;print&#160;detailed&#160;hardware&#160;capabilities</text><text class="terminal-3904383488-r1" x="1146.8" y="434.8" textLength="12.2" clip-path="url(#terminal-3904383488-line-17)">│</text><text class="terminal-3904383488-r3" x="1159" y="434.8" textLength="12.2" clip-path="url(#terminal-3904383488-line-17)">
+</text><text class="terminal-3904383488-r1" x="0" y="459.2" textLength="12.2" clip-path="url(#terminal-3904383488-line-18)">│</text><text class="terminal-3904383488-r2" x="24.4" y="459.2" textLength="146.4" clip-path="url(#terminal-3904383488-line-18)">argus&#160;assess</text><text class="terminal-3904383488-r3" x="170.8" y="459.2" textLength="866.2" clip-path="url(#terminal-3904383488-line-18)">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Execute&#160;full&#160;ROS&#160;2&#160;hardware&#160;scorecard&#160;&amp;&#160;generate&#160;DDS&#160;configs</text><text class="terminal-3904383488-r1" x="1146.8" y="459.2" textLength="12.2" clip-path="url(#terminal-3904383488-line-18)">│</text><text class="terminal-3904383488-r3" x="1159" y="459.2" textLength="12.2" clip-path="url(#terminal-3904383488-line-18)">
+</text><text class="terminal-3904383488-r1" x="0" y="483.6" textLength="12.2" clip-path="url(#terminal-3904383488-line-19)">│</text><text class="terminal-3904383488-r2" x="24.4" y="483.6" textLength="146.4" clip-path="url(#terminal-3904383488-line-19)">argus&#160;stress</text><text class="terminal-3904383488-r3" x="170.8" y="483.6" textLength="793" clip-path="url(#terminal-3904383488-line-19)">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Run&#160;CPU/memory&#160;stress&#160;tests&#160;&amp;&#160;verify&#160;thermal&#160;stability</text><text class="terminal-3904383488-r1" x="1146.8" y="483.6" textLength="12.2" clip-path="url(#terminal-3904383488-line-19)">│</text><text class="terminal-3904383488-r3" x="1159" y="483.6" textLength="12.2" clip-path="url(#terminal-3904383488-line-19)">
+</text><text class="terminal-3904383488-r1" x="0" y="508" textLength="12.2" clip-path="url(#terminal-3904383488-line-20)">│</text><text class="terminal-3904383488-r2" x="24.4" y="508" textLength="122" clip-path="url(#terminal-3904383488-line-20)">argus&#160;dash</text><text class="terminal-3904383488-r3" x="146.4" y="508" textLength="756.4" clip-path="url(#terminal-3904383488-line-20)">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Monitor&#160;real-time&#160;edge&#160;telemetry&#160;&amp;&#160;RAM&#160;allocation</text><text class="terminal-3904383488-r1" x="1146.8" y="508" textLength="12.2" clip-path="url(#terminal-3904383488-line-20)">│</text><text class="terminal-3904383488-r3" x="1159" y="508" textLength="12.2" clip-path="url(#terminal-3904383488-line-20)">
+</text><text class="terminal-3904383488-r1" x="0" y="532.4" textLength="12.2" clip-path="url(#terminal-3904383488-line-21)">│</text><text class="terminal-3904383488-r2" x="24.4" y="532.4" textLength="122" clip-path="url(#terminal-3904383488-line-21)">argus&#160;exit</text><text class="terminal-3904383488-r3" x="146.4" y="532.4" textLength="793" clip-path="url(#terminal-3904383488-line-21)">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Exit&#160;remote&#160;target&#160;session&#160;&amp;&#160;return&#160;to&#160;Mac&#160;Mini&#160;Host</text><text class="terminal-3904383488-r1" x="1146.8" y="532.4" textLength="12.2" clip-path="url(#terminal-3904383488-line-21)">│</text><text class="terminal-3904383488-r3" x="1159" y="532.4" textLength="12.2" clip-path="url(#terminal-3904383488-line-21)">
+</text><text class="terminal-3904383488-r1" x="0" y="556.8" textLength="1159" clip-path="url(#terminal-3904383488-line-22)">╰─────────────────────────────────────────────────────────────────────────────────────────────╯</text><text class="terminal-3904383488-r3" x="1159" y="556.8" textLength="12.2" clip-path="url(#terminal-3904383488-line-22)">
+</text><text class="terminal-3904383488-r4" x="0" y="581.2" textLength="536.8" clip-path="url(#terminal-3904383488-line-23)">Interactive&#160;Edge&#160;Target&#160;Control&#160;Plane&#160;Active</text><text class="terminal-3904383488-r3" x="1159" y="581.2" textLength="12.2" clip-path="url(#terminal-3904383488-line-23)">
+</text><text class="terminal-3904383488-r9" x="0" y="605.6" textLength="48.8" clip-path="url(#terminal-3904383488-line-24)">───&#160;</text><text class="terminal-3904383488-r9" x="48.8" y="605.6" textLength="12.2" clip-path="url(#terminal-3904383488-line-24)">[</text><text class="terminal-3904383488-r9" x="61" y="605.6" textLength="780.8" clip-path="url(#terminal-3904383488-line-24)">&#160;Target&#160;Telemetry&#160;Probe&#160;·&#160;Node:&#160;armCreate&#160;·&#160;Edge&#160;Mode:&#160;●&#160;ACTIVE&#160;</text><text class="terminal-3904383488-r9" x="841.8" y="605.6" textLength="12.2" clip-path="url(#terminal-3904383488-line-24)">]</text><text class="terminal-3904383488-r9" x="854" y="605.6" textLength="48.8" clip-path="url(#terminal-3904383488-line-24)">&#160;───</text><text class="terminal-3904383488-r3" x="1159" y="605.6" textLength="12.2" clip-path="url(#terminal-3904383488-line-24)">
+</text><text class="terminal-3904383488-r2" x="0" y="630" textLength="73.2" clip-path="url(#terminal-3904383488-line-25)">argus&#160;</text><text class="terminal-3904383488-r2" x="73.2" y="630" textLength="12.2" clip-path="url(#terminal-3904383488-line-25)">&gt;</text><text class="terminal-3904383488-r3" x="85.4" y="630" textLength="85.4" clip-path="url(#terminal-3904383488-line-25)">&#160;assess</text><text class="terminal-3904383488-r3" x="1159" y="630" textLength="12.2" clip-path="url(#terminal-3904383488-line-25)">
+</text><text class="terminal-3904383488-r6" x="0" y="654.4" textLength="146.4" clip-path="url(#terminal-3904383488-line-26)">✔&#160;Generated&#160;</text><text class="terminal-3904383488-r6" x="146.4" y="654.4" textLength="12.2" clip-path="url(#terminal-3904383488-line-26)">7</text><text class="terminal-3904383488-r6" x="158.6" y="654.4" textLength="256.2" clip-path="url(#terminal-3904383488-line-26)">&#160;optimal&#160;configs&#160;in&#160;.</text><text class="terminal-3904383488-r6" x="414.8" y="654.4" textLength="12.2" clip-path="url(#terminal-3904383488-line-26)">/</text><text class="terminal-3904383488-r6" x="427" y="654.4" textLength="85.4" clip-path="url(#terminal-3904383488-line-26)">configs</text><text class="terminal-3904383488-r6" x="512.4" y="654.4" textLength="573.4" clip-path="url(#terminal-3904383488-line-26)">:&#160;cyclonedds.xml,&#160;sysctl.conf,&#160;build_flags.json</text><text class="terminal-3904383488-r6" x="1085.8" y="654.4" textLength="36.6" clip-path="url(#terminal-3904383488-line-26)">...</text><text class="terminal-3904383488-r3" x="1159" y="654.4" textLength="12.2" clip-path="url(#terminal-3904383488-line-26)">
+</text>
+    </g>
+    </g>
+</svg>

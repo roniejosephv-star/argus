@@ -1,0 +1,122 @@
+<svg class="rich-terminal" viewBox="0 0 1177 416.0" xmlns="http://www.w3.org/2000/svg">
+    <!-- Generated with Rich https://www.textualize.io -->
+    <style>
+
+    @font-face {
+        font-family: "Fira Code";
+        src: local("FiraCode-Regular"),
+                url("https://cdnjs.cloudflare.com/ajax/libs/firacode/6.2.0/woff2/FiraCode-Regular.woff2") format("woff2"),
+                url("https://cdnjs.cloudflare.com/ajax/libs/firacode/6.2.0/woff/FiraCode-Regular.woff") format("woff");
+        font-style: normal;
+        font-weight: 400;
+    }
+    @font-face {
+        font-family: "Fira Code";
+        src: local("FiraCode-Bold"),
+                url("https://cdnjs.cloudflare.com/ajax/libs/firacode/6.2.0/woff2/FiraCode-Bold.woff2") format("woff2"),
+                url("https://cdnjs.cloudflare.com/ajax/libs/firacode/6.2.0/woff/FiraCode-Bold.woff") format("woff");
+        font-style: bold;
+        font-weight: 700;
+    }
+
+    .terminal-4059308977-matrix {
+        font-family: Fira Code, monospace;
+        font-size: 20px;
+        line-height: 24.4px;
+        font-variant-east-asian: full-width;
+    }
+
+    .terminal-4059308977-title {
+        font-size: 18px;
+        font-weight: bold;
+        font-family: arial;
+    }
+
+    .terminal-4059308977-r1 { fill: #c5c8c6 }
+.terminal-4059308977-r2 { fill: #38b6ff;font-weight: bold }
+.terminal-4059308977-r3 { fill: #00d2ff }
+.terminal-4059308977-r4 { fill: #00d2ff;font-weight: bold }
+.terminal-4059308977-r5 { fill: #c5c8c6;font-weight: bold }
+.terminal-4059308977-r6 { fill: #68a0b3;font-weight: bold }
+.terminal-4059308977-r7 { fill: #98a84b }
+.terminal-4059308977-r8 { fill: #00ff88;font-weight: bold }
+.terminal-4059308977-r9 { fill: #868887 }
+    </style>
+
+    <defs>
+    <clipPath id="terminal-4059308977-clip-terminal">
+      <rect x="0" y="0" width="1158.0" height="365.0" />
+    </clipPath>
+    <clipPath id="terminal-4059308977-line-0">
+    <rect x="0" y="1.5" width="1159" height="24.65"/>
+            </clipPath>
+<clipPath id="terminal-4059308977-line-1">
+    <rect x="0" y="25.9" width="1159" height="24.65"/>
+            </clipPath>
+<clipPath id="terminal-4059308977-line-2">
+    <rect x="0" y="50.3" width="1159" height="24.65"/>
+            </clipPath>
+<clipPath id="terminal-4059308977-line-3">
+    <rect x="0" y="74.7" width="1159" height="24.65"/>
+            </clipPath>
+<clipPath id="terminal-4059308977-line-4">
+    <rect x="0" y="99.1" width="1159" height="24.65"/>
+            </clipPath>
+<clipPath id="terminal-4059308977-line-5">
+    <rect x="0" y="123.5" width="1159" height="24.65"/>
+            </clipPath>
+<clipPath id="terminal-4059308977-line-6">
+    <rect x="0" y="147.9" width="1159" height="24.65"/>
+            </clipPath>
+<clipPath id="terminal-4059308977-line-7">
+    <rect x="0" y="172.3" width="1159" height="24.65"/>
+            </clipPath>
+<clipPath id="terminal-4059308977-line-8">
+    <rect x="0" y="196.7" width="1159" height="24.65"/>
+            </clipPath>
+<clipPath id="terminal-4059308977-line-9">
+    <rect x="0" y="221.1" width="1159" height="24.65"/>
+            </clipPath>
+<clipPath id="terminal-4059308977-line-10">
+    <rect x="0" y="245.5" width="1159" height="24.65"/>
+            </clipPath>
+<clipPath id="terminal-4059308977-line-11">
+    <rect x="0" y="269.9" width="1159" height="24.65"/>
+            </clipPath>
+<clipPath id="terminal-4059308977-line-12">
+    <rect x="0" y="294.3" width="1159" height="24.65"/>
+            </clipPath>
+<clipPath id="terminal-4059308977-line-13">
+    <rect x="0" y="318.7" width="1159" height="24.65"/>
+            </clipPath>
+    </defs>
+
+    <rect fill="#292929" stroke="rgba(255,255,255,0.35)" stroke-width="1" x="1" y="1" width="1175" height="414" rx="8"/><text class="terminal-4059308977-title" fill="#c5c8c6" text-anchor="middle" x="587" y="27">Argus&#160;Real-Time&#160;Cyberpunk&#160;Dashboard</text>
+            <g transform="translate(26,22)">
+            <circle cx="0" cy="0" r="7" fill="#ff5f57"/>
+            <circle cx="22" cy="0" r="7" fill="#febc2e"/>
+            <circle cx="44" cy="0" r="7" fill="#28c840"/>
+            </g>
+        
+    <g transform="translate(9, 41)" clip-path="url(#terminal-4059308977-clip-terminal)">
+    
+    <g class="terminal-4059308977-matrix">
+    <text class="terminal-4059308977-r2" x="280.6" y="20" textLength="378.2" clip-path="url(#terminal-4059308977-line-0)">⚡&#160;ARGUS&#160;EDGE&#160;TELEMETRY&#160;MONITOR&#160;</text><text class="terminal-4059308977-r2" x="671" y="20" textLength="12.2" clip-path="url(#terminal-4059308977-line-0)">(</text><text class="terminal-4059308977-r2" x="683.2" y="20" textLength="146.4" clip-path="url(#terminal-4059308977-line-0)">`argus&#160;dash`</text><text class="terminal-4059308977-r2" x="829.6" y="20" textLength="12.2" clip-path="url(#terminal-4059308977-line-0)">)</text><text class="terminal-4059308977-r2" x="841.8" y="20" textLength="24.4" clip-path="url(#terminal-4059308977-line-0)">&#160;⚡</text><text class="terminal-4059308977-r1" x="1159" y="20" textLength="12.2" clip-path="url(#terminal-4059308977-line-0)">
+</text><text class="terminal-4059308977-r1" x="1159" y="44.4" textLength="12.2" clip-path="url(#terminal-4059308977-line-1)">
+</text><text class="terminal-4059308977-r3" x="0" y="68.8" textLength="24.4" clip-path="url(#terminal-4059308977-line-2)">╭─</text><text class="terminal-4059308977-r3" x="24.4" y="68.8" textLength="341.6" clip-path="url(#terminal-4059308977-line-2)">────────────────────────────</text><text class="terminal-4059308977-r4" x="378.2" y="68.8" textLength="402.6" clip-path="url(#terminal-4059308977-line-2)">&#160;REAL-TIME&#160;EDGE&#160;TARGET&#160;TELEMETRY&#160;</text><text class="terminal-4059308977-r3" x="793" y="68.8" textLength="341.6" clip-path="url(#terminal-4059308977-line-2)">────────────────────────────</text><text class="terminal-4059308977-r3" x="1134.6" y="68.8" textLength="24.4" clip-path="url(#terminal-4059308977-line-2)">─╮</text><text class="terminal-4059308977-r1" x="1159" y="68.8" textLength="12.2" clip-path="url(#terminal-4059308977-line-2)">
+</text><text class="terminal-4059308977-r3" x="0" y="93.2" textLength="12.2" clip-path="url(#terminal-4059308977-line-3)">│</text><text class="terminal-4059308977-r5" x="36.6" y="93.2" textLength="305" clip-path="url(#terminal-4059308977-line-3)">Metric&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</text><text class="terminal-4059308977-r5" x="366" y="93.2" textLength="244" clip-path="url(#terminal-4059308977-line-3)">Status&#160;/&#160;Reading&#160;&#160;&#160;&#160;</text><text class="terminal-4059308977-r5" x="634.4" y="93.2" textLength="488" clip-path="url(#terminal-4059308977-line-3)">Gauge&#160;/&#160;Visualization&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</text><text class="terminal-4059308977-r3" x="1146.8" y="93.2" textLength="12.2" clip-path="url(#terminal-4059308977-line-3)">│</text><text class="terminal-4059308977-r1" x="1159" y="93.2" textLength="12.2" clip-path="url(#terminal-4059308977-line-3)">
+</text><text class="terminal-4059308977-r3" x="0" y="117.6" textLength="12.2" clip-path="url(#terminal-4059308977-line-4)">│</text><text class="terminal-4059308977-r6" x="36.6" y="117.6" textLength="305" clip-path="url(#terminal-4059308977-line-4)">CPU&#160;Load&#160;(4x&#160;Cortex-A72)&#160;</text><text class="terminal-4059308977-r5" x="366" y="117.6" textLength="244" clip-path="url(#terminal-4059308977-line-4)">28.4%&#160;@&#160;1.50&#160;GHz&#160;&#160;&#160;&#160;</text><text class="terminal-4059308977-r8" x="634.4" y="117.6" textLength="488" clip-path="url(#terminal-4059308977-line-4)">███████████─────────────────────────────</text><text class="terminal-4059308977-r3" x="1146.8" y="117.6" textLength="12.2" clip-path="url(#terminal-4059308977-line-4)">│</text><text class="terminal-4059308977-r1" x="1159" y="117.6" textLength="12.2" clip-path="url(#terminal-4059308977-line-4)">
+</text><text class="terminal-4059308977-r3" x="0" y="142" textLength="12.2" clip-path="url(#terminal-4059308977-line-5)">│</text><text class="terminal-4059308977-r7" x="634.4" y="142" textLength="488" clip-path="url(#terminal-4059308977-line-5)">28%&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</text><text class="terminal-4059308977-r3" x="1146.8" y="142" textLength="12.2" clip-path="url(#terminal-4059308977-line-5)">│</text><text class="terminal-4059308977-r1" x="1159" y="142" textLength="12.2" clip-path="url(#terminal-4059308977-line-5)">
+</text><text class="terminal-4059308977-r3" x="0" y="166.4" textLength="12.2" clip-path="url(#terminal-4059308977-line-6)">│</text><text class="terminal-4059308977-r6" x="36.6" y="166.4" textLength="305" clip-path="url(#terminal-4059308977-line-6)">RAM&#160;Allocation&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</text><text class="terminal-4059308977-r5" x="366" y="166.4" textLength="244" clip-path="url(#terminal-4059308977-line-6)">412.0&#160;MB&#160;/&#160;1840.0&#160;MB</text><text class="terminal-4059308977-r2" x="634.4" y="166.4" textLength="488" clip-path="url(#terminal-4059308977-line-6)">████████────────────────────────────────</text><text class="terminal-4059308977-r3" x="1146.8" y="166.4" textLength="12.2" clip-path="url(#terminal-4059308977-line-6)">│</text><text class="terminal-4059308977-r1" x="1159" y="166.4" textLength="12.2" clip-path="url(#terminal-4059308977-line-6)">
+</text><text class="terminal-4059308977-r3" x="0" y="190.8" textLength="12.2" clip-path="url(#terminal-4059308977-line-7)">│</text><text class="terminal-4059308977-r7" x="634.4" y="190.8" textLength="488" clip-path="url(#terminal-4059308977-line-7)">22%&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</text><text class="terminal-4059308977-r3" x="1146.8" y="190.8" textLength="12.2" clip-path="url(#terminal-4059308977-line-7)">│</text><text class="terminal-4059308977-r1" x="1159" y="190.8" textLength="12.2" clip-path="url(#terminal-4059308977-line-7)">
+</text><text class="terminal-4059308977-r3" x="0" y="215.2" textLength="12.2" clip-path="url(#terminal-4059308977-line-8)">│</text><text class="terminal-4059308977-r6" x="36.6" y="215.2" textLength="305" clip-path="url(#terminal-4059308977-line-8)">Thermal&#160;Zone&#160;(/sys/class)</text><text class="terminal-4059308977-r8" x="366" y="215.2" textLength="195.2" clip-path="url(#terminal-4059308977-line-8)">54.0°C&#160;(Nominal)</text><text class="terminal-4059308977-r8" x="634.4" y="215.2" textLength="488" clip-path="url(#terminal-4059308977-line-8)">███████████████████─────────────────────</text><text class="terminal-4059308977-r3" x="1146.8" y="215.2" textLength="12.2" clip-path="url(#terminal-4059308977-line-8)">│</text><text class="terminal-4059308977-r1" x="1159" y="215.2" textLength="12.2" clip-path="url(#terminal-4059308977-line-8)">
+</text><text class="terminal-4059308977-r3" x="0" y="239.6" textLength="12.2" clip-path="url(#terminal-4059308977-line-9)">│</text><text class="terminal-4059308977-r7" x="634.4" y="239.6" textLength="488" clip-path="url(#terminal-4059308977-line-9)">54°C&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</text><text class="terminal-4059308977-r3" x="1146.8" y="239.6" textLength="12.2" clip-path="url(#terminal-4059308977-line-9)">│</text><text class="terminal-4059308977-r1" x="1159" y="239.6" textLength="12.2" clip-path="url(#terminal-4059308977-line-9)">
+</text><text class="terminal-4059308977-r3" x="0" y="264" textLength="12.2" clip-path="url(#terminal-4059308977-line-10)">│</text><text class="terminal-4059308977-r6" x="36.6" y="264" textLength="305" clip-path="url(#terminal-4059308977-line-10)">ROS&#160;2&#160;Bridge&#160;Transport&#160;&#160;&#160;</text><text class="terminal-4059308977-r5" x="366" y="264" textLength="244" clip-path="url(#terminal-4059308977-line-10)">FastDDS&#160;/&#160;SHM&#160;+&#160;UDP&#160;</text><text class="terminal-4059308977-r4" x="634.4" y="264" textLength="439.2" clip-path="url(#terminal-4059308977-line-10)">●&#160;ACTIVE&#160;(`localhost:2222`&#160;Loopback)</text><text class="terminal-4059308977-r3" x="1146.8" y="264" textLength="12.2" clip-path="url(#terminal-4059308977-line-10)">│</text><text class="terminal-4059308977-r1" x="1159" y="264" textLength="12.2" clip-path="url(#terminal-4059308977-line-10)">
+</text><text class="terminal-4059308977-r3" x="0" y="288.4" textLength="12.2" clip-path="url(#terminal-4059308977-line-11)">│</text><text class="terminal-4059308977-r6" x="36.6" y="288.4" textLength="305" clip-path="url(#terminal-4059308977-line-11)">Active&#160;ROS&#160;2&#160;Nodes&#160;&#160;&#160;&#160;&#160;&#160;&#160;</text><text class="terminal-4059308977-r5" x="366" y="288.4" textLength="244" clip-path="url(#terminal-4059308977-line-11)">3&#160;Nodes&#160;Running&#160;&#160;&#160;&#160;&#160;</text><text class="terminal-4059308977-r5" x="634.4" y="288.4" textLength="414.8" clip-path="url(#terminal-4059308977-line-11)">/smart_tv_node,&#160;/argus_telemetry,&#160;</text><text class="terminal-4059308977-r3" x="1146.8" y="288.4" textLength="12.2" clip-path="url(#terminal-4059308977-line-11)">│</text><text class="terminal-4059308977-r1" x="1159" y="288.4" textLength="12.2" clip-path="url(#terminal-4059308977-line-11)">
+</text><text class="terminal-4059308977-r3" x="0" y="312.8" textLength="12.2" clip-path="url(#terminal-4059308977-line-12)">│</text><text class="terminal-4059308977-r5" x="634.4" y="312.8" textLength="85.4" clip-path="url(#terminal-4059308977-line-12)">/bridge</text><text class="terminal-4059308977-r3" x="1146.8" y="312.8" textLength="12.2" clip-path="url(#terminal-4059308977-line-12)">│</text><text class="terminal-4059308977-r1" x="1159" y="312.8" textLength="12.2" clip-path="url(#terminal-4059308977-line-12)">
+</text><text class="terminal-4059308977-r3" x="0" y="337.2" textLength="1159" clip-path="url(#terminal-4059308977-line-13)">╰─────────────────────────────────────────────────────────────────────────────────────────────╯</text><text class="terminal-4059308977-r1" x="1159" y="337.2" textLength="12.2" clip-path="url(#terminal-4059308977-line-13)">
+</text><text class="terminal-4059308977-r9" x="0" y="361.6" textLength="585.6" clip-path="url(#terminal-4059308977-line-14)">Press&#160;Ctrl+C&#160;to&#160;return&#160;to&#160;interactive&#160;Argus&#160;REPL</text><text class="terminal-4059308977-r1" x="1159" y="361.6" textLength="12.2" clip-path="url(#terminal-4059308977-line-14)">
+</text>
+    </g>
+    </g>
+</svg>
